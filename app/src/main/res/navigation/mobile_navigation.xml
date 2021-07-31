@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.victor.creativenaija.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_raffle_draw"
+        android:name="com.victor.creativenaija.ui.raffle_draw.RaffleFragment"
+        android:label="@string/title_draw"
+        tools:layout="@layout/fragment_raffle_draw" />
+
+    <fragment
+        android:id="@+id/navigation_contest"
+        android:name="com.victor.creativenaija.ui.contest.ContestFragment"
+        android:label="@string/title_contest"
+        tools:layout="@layout/fragment_contest" />
+</navigation>
