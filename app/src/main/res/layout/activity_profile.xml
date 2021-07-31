@@ -20,15 +20,14 @@
 
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:scrimVisibleHeightTrigger="200dp">
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="end"
-                android:layout_margin="10dp"
-                android:src="@drawable/ic_exit"
-                app:backgroundTint="@color/lightgrey"
-                app:tint="@color/sandyBrown" />
+                       <com.google.android.material.floatingactionbutton.FloatingActionButton
+                           android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           app:backgroundTint="@color/lightgrey"
+                           android:src="@drawable/ic_exit"
+                           android:layout_gravity="end"
+                           app:tint="@color/sandyBrown"
+                           android:layout_margin="10dp"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -162,9 +161,9 @@
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
                                     android:layout_marginBottom="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_weight="1"
                                     android:backgroundTint="@color/snowWhite"
                                     android:text="Buy"
@@ -178,7 +177,8 @@
                                         android:fontFamily="@font/baloo"
                                         android:text="Buy Vote"
                                         android:textAlignment="center"
-                                        android:textColor="@color/sandyBrown" />
+                                        android:textColor="@color/sandyBrown"
+                                       />
 
                                 </com.google.android.material.card.MaterialCardView>
                             </LinearLayout>
@@ -240,13 +240,13 @@
 
 
             <LinearLayout
-                android:id="@+id/cardAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
                 android:clickable="true"
+                android:id="@+id/cardAccount"
+                android:layout_marginRight="10dp"
                 android:orientation="horizontal"
 
                 android:weightSum="3">
@@ -376,14 +376,17 @@
                     android:layout_gravity="center"
                     android:layout_weight="0.4"
                     android:backgroundTint="@color/lightgrey"
+                    app:thumbTint="@color/sandyBrown"
                     android:buttonTint="@color/snowWhite"
                     android:src="@drawable/ic_rightarrow"
                     app:cornerRadius="10dp"
                     app:elevation="0dp"
-                    app:iconTint="@color/black"
-                    app:thumbTint="@color/sandyBrown" />
+                    app:iconTint="@color/black" />
 
             </LinearLayout>
+
+
+
 
 
         </LinearLayout>
