@@ -1,10 +1,12 @@
 package com.victor.creativenaija.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.victor.creativenaija.LeaderBoardActivity
 import com.victor.creativenaija.R
 import com.victor.creativenaija.models.Contest
 
@@ -27,6 +29,7 @@ class ContestsAdapter : RecyclerView.Adapter<ContestsAdapter.ContestsItemHolder>
 
     override fun onBindViewHolder(holder: ContestsItemHolder, position: Int) {
         holder.itemView.findViewById<TextView>(R.id.txtContestTittle).setText(contests[position].contestDetails)
+        holder.itemView.setOnClickListener { holder.itemView.context.startActivity(Intent(holder.itemView.context,LeaderBoardActivity::class.java)) }
     }
 
     override fun getItemCount(): Int {

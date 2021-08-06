@@ -2,7 +2,7 @@ package com.victor.creativenaija.models
 
 data class Contest(
     val id: Int,
-    val contestants: ArrayList<Contestants>,
+//    val contestants: ArrayList<Contestants>,
     val contestDetails: String,
     val startDate: Long,
     val endDate: Long,
@@ -14,7 +14,7 @@ data class Contest(
         startDate: Long,
         endDate: Long,
         winnerId: Int
-    ) : this(0, contestants, contestDetails, startDate, endDate, winnerId)
+    ) : this(0,  contestDetails, startDate, endDate, winnerId)
 
     fun getContests(): ArrayList<Contest> {
         val contests: ArrayList<Contest> = arrayListOf()

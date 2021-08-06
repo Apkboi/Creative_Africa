@@ -33,6 +33,14 @@
 
     </FrameLayout>
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,15 +110,18 @@
             android:text="Name :"
             android:textSize="16dp" />
 
+
         <EditText
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            app:startIconDrawable="@drawable/ic_profile"
             android:textSize="18dp"
-            android:backgroundTint="@color/white"
-            android:textAlignment="center"
-            android:text="Ebube Roderick" />
+            android:text="Ebube Roderick"
+           >
+
+        </EditText>
 
     </LinearLayout>
 
@@ -149,7 +160,7 @@
                 android:checkable="true"
                 android:focusable="true"
                 app:cardCornerRadius="10dp"
-                android:id="@+id/btn_Documents">
+                android:id="@+id/btn_male">
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -165,7 +176,7 @@
                 app:cardCornerRadius="10dp"
                 android:background="@drawable/radio_selector"
                 android:checkable="true"
-                android:id="@+id/btn_parcels">
+                android:id="@+id/btn_female">
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -216,11 +227,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
             android:layout_weight="2"
-            android:textAlignment="center"
-            android:backgroundTint="@color/white"
-            android:text="10" />
+            app:startIconDrawable="@drawable/ic_profile"
+            android:textSize="18dp"
+            android:text="44"/>
 
     </LinearLayout>
     <LinearLayout
@@ -242,11 +252,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
             android:layout_weight="2"
-            android:textAlignment="center"
-            android:backgroundTint="@color/white"
-            android:text="Ebube Roderick" />
+            app:startIconDrawable="@drawable/ic_profile"
+            android:textSize="18dp"
+            android:text="Ebube Roderick"
+            />
 
     </LinearLayout>
     <LinearLayout
@@ -270,10 +280,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:backgroundTint="@color/white"
+            app:startIconDrawable="@drawable/ic_profile"
             android:textSize="18dp"
-            android:textAlignment="center"
-            android:text="090765447764567" />
+            android:text="7655677"
+            />
 
     </LinearLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
