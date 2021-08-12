@@ -9,7 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/snowWhite"
+        android:backgroundTint="@color/backgroundColor"
         android:elevation="5dp">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -21,6 +21,9 @@
         </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,7 +34,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="300dp"
             android:scaleType="centerCrop"
             android:src="@drawable/singerm"
 
@@ -42,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginTop="10dp"
-            android:background="@color/transperentWhite"
+
             android:orientation="horizontal"
             android:padding="10dp"
             android:weightSum="3">
@@ -77,7 +80,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_comment" />
+                    android:src="@drawable/ic_comments" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -127,6 +130,8 @@
             tools:listitem="@layout/comments_item" />
 
     </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:backgroundTint="@color/white"
     android:elevation="10dp"
     app:cardCornerRadius="7dp">
 
@@ -40,7 +39,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:text="Mr. CReative Africa"
-                    android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="bold" />
 
@@ -75,7 +73,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:elevation="0dp">
 
                 <com.google.android.exoplayer2.ui.StyledPlayerView
                     android:id="@+id/video_view"
@@ -98,37 +97,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:background="@color/transperentWhite"
+                    android:background="@color/snowWhite"
                     android:orientation="horizontal"
                     android:padding="10dp">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_profile"
-                        app:tint="@color/smokeWhite" />
+                        android:src="@drawable/ic_favorite" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="16dp"
-                        android:text="21"
-                        android:textColor="@color/smokeWhite" />
+                        android:text="21" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_notifications_black_24dp"
-                        app:tint="@color/smokeWhite" />
+                        android:src="@drawable/ic_coment" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="16dp"
-                        android:text="21"
-                        android:textColor="@color/smokeWhite" />
+                        android:text="21" />
 
                 </LinearLayout>
             </FrameLayout>

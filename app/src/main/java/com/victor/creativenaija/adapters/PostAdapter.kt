@@ -73,8 +73,8 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.PostItemHolder>() {
                     Util.getUserAgent(itemView.context, "yourApplicationName")
                 )
             val extractorMediaSource = ExtractorMediaSource.Factory(defaultDataSourceFactory)
-                .createMediaSource(RawResourceDataSource.buildRawResourceUri(R.raw.cats))
-            simpleExoPlayer!!.prepare(extractorMediaSource)
+//                .createMediaSource(RawResourceDataSource.buildRawResourceUri(R.raw.cats))
+//            simpleExoPlayer!!.prepare(extractorMediaSource)
             simpleExoPlayer!!.pause()
 
         }
@@ -121,10 +121,10 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.PostItemHolder>() {
         if (holder.isPlaying()) {
             Log.e("TAG1", "play");
             holder.releasePlayer();
-            holder.initializePlayer();
+//            holder.initializePlayer();
         } else {
             Log.e("TAG1", "empty");
-            holder.initializePlayer();
+//            holder.initializePlayer();
         }
 
 

@@ -24,7 +24,6 @@
             android:layout_marginStart="10dp"
             android:fontFamily="@font/baloo"
             android:text="Creative Africa"
-            android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
 

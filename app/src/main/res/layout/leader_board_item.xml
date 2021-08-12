@@ -1,100 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="3dp"
+    android:backgroundTint="@color/snowWhite"
     app:cardCornerRadius="8dp"
-    app:cardElevation="0dp"
-    android:backgroundTint="@color/snowWhite">
+    app:cardElevation="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center"
+        android:orientation="horizontal"
         android:weightSum="3">
 
         <TextView
+            android:id="@+id/txt_position"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
             android:layout_weight="0.2"
             android:text="1"
-            android:layout_gravity="center"
-            android:textStyle="bold"
             android:textSize="18dp"
-            android:id="@+id/txt_position"
-            android:layout_marginLeft="10dp"/>
+            android:textStyle="bold" />
+
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_user"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:layout_weight="0"
-            android:id="@+id/img_user"
-            android:src="@drawable/photographm"
-            android:layout_gravity="center" />
+            android:src="@drawable/photographm" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.7"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ebube Roderick Roderick"
-            android:maxLength="13"
-            android:ellipsize="end"
-            android:textColor="@color/materialblack"
-            android:id="@+id/userName"
-            android:textSize="18dp"/>
+            android:layout_weight="1.7"
+            android:orientation="vertical">
+
             <TextView
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLength="13"
+                android:text="Ebube Roderick Roderick"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/userVotes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="500 vts"
-                android:id="@+id/userVotes"
-                android:fontFamily="@font/baloo"/>
+                android:fontFamily="@font/baloo"
+                android:text="500 vts" />
         </LinearLayout>
 
 
-
-
         <LinearLayout
+            android:id="@+id/btn_vote"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/vote_bg"
             android:backgroundTint="@color/LightsandyBrown"
-            app:icon="@drawable/ic_vote"
-            android:text="Vote"
-            android:id="@+id/btn_vote"
-            app:elevation="0dp"
+            android:clickable="true"
+            android:orientation="horizontal"
             android:padding="10dp"
+            android:text="vote"
             app:backgroundTint="@color/grey"
-            android:layout_gravity="center">
+            app:elevation="0dp"
+            app:icon="@drawable/ic_vote">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_vote"
-                android:tint="@color/sandyBrown"
+                android:layout_gravity="center"
                 android:layout_marginStart="5dp"
-                android:layout_gravity="center"/>
+                android:src="@drawable/ic_vote"
+                android:tint="@color/sandyBrown" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vote"
-                android:textSize="18dp"
+                android:layout_gravity="center"
                 android:layout_marginStart="5dp"
+                android:text="vote"
                 android:textColor="@color/sandyBrown"
-                android:layout_gravity="center"/>
+                android:textSize="18dp" />
         </LinearLayout>
 
-       
 
     </LinearLayout>
 

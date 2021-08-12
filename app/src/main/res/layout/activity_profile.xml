@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/singerm" />
+                    />
 
                 <View
                     android:layout_width="match_parent"
@@ -88,6 +88,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <LinearLayout
@@ -106,8 +107,8 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnActiveTrip"
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:clickable="true"
@@ -118,15 +119,31 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
+                        android:orientation="vertical"
+                        android:padding="7dp">
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:layout_gravity="end"
-                            android:layout_margin="8dp"
-                            android:src="@drawable/ic_vote"
+                            android:layout_gravity="start"
+                            android:src="@drawable/ic_wallet"
                             app:tint="@color/white" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/baloo"
+                                android:text="Wallet Balance"
+                                android:textSize="15dp"
+
+                                android:textColor="@android:color/white" />
+
+                        </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -134,54 +151,86 @@
                             android:layout_gravity="center"
                             android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="8dp"
-                                android:fontFamily="@font/baloo"
-                                android:text="Votes"
-                                android:textColor="@android:color/white" />
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:weightSum="2">
-
+                                android:orientation="horizontal">
                                 <TextView
-                                    android:id="@+id/active_Trip"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="8dp"
-                                    android:layout_marginBottom="5dp"
-                                    android:layout_weight="1"
-                                    android:text="5"
-                                    android:textColor="@android:color/white" />
-
-                                <com.google.android.material.card.MaterialCardView
-                                    android:layout_width="0dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/baloo"
+                                android:text="N 500000"
+                                    android:textStyle="bold"
+                                android:textColor="@android:color/white" />
+                                <ImageView
+                                    android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_weight="1"
-                                    android:backgroundTint="@color/snowWhite"
-                                    android:text="Buy"
-                                    android:textColor="@color/sandyBrown"
-                                    app:cardCornerRadius="15dp">
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_see"
+                                    app:tint="@color/white"
+                                    android:layout_marginLeft="8dp"/>
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        android:fontFamily="@font/baloo"
-                                        android:text="Buy Vote"
-                                        android:textAlignment="center"
-                                        android:textColor="@color/sandyBrown"
-                                       />
 
-                                </com.google.android.material.card.MaterialCardView>
                             </LinearLayout>
+
+
+
+
+                            <com.google.android.material.button.MaterialButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:backgroundTint="@color/white"
+                                app:cornerRadius="18dp"
+                                android:textColor="@color/sandyBrown"
+                                android:text="Fund Wallet"
+                                app:iconGravity="textStart"
+                                android:fontFamily="@font/baloo"
+                                app:elevation="0dp"
+                                app:icon="@drawable/ic_dollar"
+                                android:id="@+id/btn_fund"
+                                app:iconTint="@color/sandyBrown"/>
+
+<!--                            <com.google.android.material.button.MaterialButton-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                app:backgroundTint="@color/white"-->
+<!--                                android:text="Fund Wallet"-->
+<!--                                android:textColor="@color/sandyBrown"/>-->
+<!--                                <com.google.android.material.card.MaterialCardView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:backgroundTint="@color/snowWhite"-->
+<!--                                    android:text="Buy"-->
+<!--                                    android:layout_gravity="end"-->
+<!--                                    android:textColor="@color/sandyBrown">-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="match_parent"-->
+<!--                                        android:orientation="horizontal">-->
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:layout_gravity="start"-->
+<!--                                            android:src="@drawable/ic_wallet"-->
+<!--                                            app:tint="@color/sandyBrown" />-->
+<!--                                        <TextView-->
+<!--                                            android:layout_width="wrap_content"-->
+<!--                                            android:layout_height="wrap_content"-->
+<!--                                            android:layout_gravity="center"-->
+<!--                                            android:fontFamily="@font/baloo"-->
+<!--                                            android:text="Fund Wallet"-->
+<!--                                            android:layout_marginLeft="5dp"-->
+<!--                                            android:layout_marginRight="5dp"-->
+<!--                                            android:textAlignment="center"-->
+<!--                                            android:textColor="@color/sandyBrown"-->
+<!--                                            />-->
+<!--                                    </LinearLayout>-->
+
+
+
+<!--                                </com.google.android.material.card.MaterialCardView>-->
                         </LinearLayout>
 
                     </LinearLayout>
@@ -190,7 +239,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnPendigTrip"
                     android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_height="110dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:clickable="true"
@@ -288,7 +337,54 @@
                     app:elevation="0dp"
                     app:iconTint="@color/black" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                android:id="@+id/btn_ticket"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:src="@drawable/ic_tickets"
+                    app:backgroundTint="@color/snowWhite"
+                    app:elevation="0dp"
+                    app:tint="@color/sandyBrown" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/baloo"
+                    android:orientation="vertical"
+                    android:text="My Tickets"
+
+                    android:textSize="18dp"
+                    android:textStyle="bold">
+
+
+                </TextView>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.4"
+                    android:backgroundTint="@color/lightgrey"
+                    android:src="@drawable/ic_rightarrow"
+                    app:cornerRadius="10dp"
+                    app:elevation="0dp"
+                    app:iconTint="@color/black" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -381,6 +477,7 @@
                     android:src="@drawable/ic_rightarrow"
                     app:cornerRadius="10dp"
                     app:elevation="0dp"
+                    android:id="@+id/btn_switchMode"
                     app:iconTint="@color/black" />
 
             </LinearLayout>

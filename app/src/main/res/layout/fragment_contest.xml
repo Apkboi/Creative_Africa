@@ -18,14 +18,13 @@
             android:fontFamily="@font/baloo"
             android:text="Contests"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/textColor"
             android:textSize="25dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
             android:id="@+id/contestRecycler"
             tools:listitem="@layout/contest_item" />
     </LinearLayout>

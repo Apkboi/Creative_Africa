@@ -64,7 +64,7 @@ class OnboardingActivity : AppCompatActivity() {
 
         })
 
-        binding.txtSignUp.setOnClickListener {startActivity(Intent(this,LoginActivity::class.java))
+        binding.txtSignUp.setOnClickListener {startActivity(Intent(this,SignUpActivity::class.java))
             finish()  }
         binding.btnLogin.setOnClickListener { startActivity(Intent(this,MainActivity::class.java))
         finish()}

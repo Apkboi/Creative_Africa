@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     android:orientation="vertical"
     tools:context=".LeaderBoardActivity">
 
@@ -31,8 +32,8 @@
             android:fontFamily="@font/baloo"
             android:text="LeadearBoard"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="0dp"
@@ -42,55 +43,60 @@
             android:gravity="right"
             android:src="@drawable/ic_baseline_share_24" />
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/btn_about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:layout_margin="16dp"
         android:background="@drawable/vote_bg"
         android:backgroundTint="@color/LightsandyBrown"
-        app:icon="@drawable/ic_vote"
 
-        android:id="@+id/btn_vote"
-        app:elevation="0dp"
+        android:orientation="horizontal"
         android:padding="10dp"
-        android:layout_margin="16dp"
+
         app:backgroundTint="@color/grey"
-        android:layout_gravity="end">
+        app:elevation="0dp"
+        app:icon="@drawable/ic_vote">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_help"
-            android:tint="@color/sandyBrown"
+            android:layout_gravity="center"
             android:layout_marginStart="5dp"
-            android:layout_gravity="center"/>
+            android:src="@drawable/ic_help"
+            android:tint="@color/sandyBrown" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/baloo"
             android:text="About Contest"
             android:textAllCaps="false"
-            android:fontFamily="@font/baloo"
-            android:textSize="18dp"
-            android:layout_marginStart="5dp"
             android:textColor="@color/sandyBrown"
-            android:layout_gravity="center"/>
+            android:textSize="18dp" />
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/LightsandyBrown">
 
-
-            android:background="@color/LightsandyBrown"
-            android:layout_margin="16dp">
+            <!--      About Contest  -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+
                 android:padding="16dp">
 
 
@@ -99,129 +105,135 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="2">
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="About Contest"
                         android:layout_weight="1.6"
-                        android:textSize="16dp"
                         android:fontFamily="@font/baloo"
-                        android:textStyle="bold"
-                        android:textColor="@color/sandyBrown"/>
+                        android:text="About Contest"
+                        android:textColor="@color/sandyBrown"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_close"
-                        android:layout_weight="0.4"/>
+                        android:layout_weight="0.4"
+                        android:src="@drawable/ic_close" />
 
                 </LinearLayout>
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/baloo"
+                    android:text="@string/Description3" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_join"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
-                    android:text="@string/Description3"
-                  />
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:padding="15dp"
                     android:text="Join Contest"
-                    android:fontFamily="@font/baloo"
+                    android:textColor="@color/white"
                     app:icon="@drawable/ic_vote"
-                    app:iconGravity="textStart"/>
+                    app:iconTint="@color/white"
+                    app:iconGravity="textStart" />
             </LinearLayout>
 
         </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        android:padding="5dp"
-        android:weightSum="3">
-
+<!--        LeaderBoard Images-->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.7"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:weightSum="3">
 
-            <TextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
-                android:text="2"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/thirdPosition"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:src="@drawable/singerm" />
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:text="2"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="18dp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/thirdPosition"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/singerm" />
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="18dp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/firstPosition"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/photographm" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:text="3"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="18dp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/secondPosition"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/dancem" />
+
+
+            </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1.6"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
-                android:text="1"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/firstPosition"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:src="@drawable/photographm" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.7"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
-                android:text="3"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/secondPosition"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
-                android:src="@drawable/dancem" />
-
-
-        </LinearLayout>
-    </LinearLayout>
 
     </FrameLayout>
 
@@ -245,18 +257,17 @@
             android:drawablePadding="16dp"
             android:fontFamily="@font/baloo"
             android:hint="Search for Contestant"
-            android:inputType="textAutoComplete"
-             />
+            android:inputType="textAutoComplete" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contestantsRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
-        tools:itemCount="2"
-        android:id="@+id/contestantsRecycler"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="4"
         tools:listitem="@layout/leader_board_item" />
 
 

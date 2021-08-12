@@ -8,7 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="materialblack">#A92B2B2B</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="backgroundColor">#FFFFFFFF</color>
+    <color name="textColor">#A92B2B2B</color>
+
     <color name="sandyBrown">#F49048</color>
+    <color name="sandBrown">#e1cb81</color> #
     <color name="LightsandyBrown">#2DF49651</color>
     <color name="smokeWhite">#edf1f4</color>
     <color name="snowWhite">#fafafa</color>
@@ -16,7 +20,7 @@
     <color name="lightBlue">#4fc2f7</color>
     <color name="indianred">#e35e60</color>
     <color name="grau">#8e519c</color>
-    <color name="grey">#D5D4D4</color>
+    <color name="grey">#F8EDEDED</color>
     <color name="lightgrey">#FBFBFB</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>

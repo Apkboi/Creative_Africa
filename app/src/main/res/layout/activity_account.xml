@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="25dp"
+    android:background="@color/backgroundColor"
     tools:context=".AccountActivity">
 
     <FrameLayout
@@ -47,7 +48,6 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/baloo"
         android:text="Account "
-        android:textColor="@color/black"
         android:textSize="25dp"
         android:textStyle="bold" />
 
@@ -208,31 +208,31 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:weightSum="3">-->
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/baloo"
-            android:text="Age :"
-            android:textSize="16dp" />
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:fontFamily="@font/baloo"-->
+<!--            android:text="Age :"-->
+<!--            android:textSize="16dp" />-->
 
-        <EditText
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            app:startIconDrawable="@drawable/ic_profile"
-            android:textSize="18dp"
-            android:text="44"/>
+<!--        <EditText-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="2"-->
+<!--            app:startIconDrawable="@drawable/ic_profile"-->
+<!--            android:textSize="18dp"-->
+<!--            android:text="44"/>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
