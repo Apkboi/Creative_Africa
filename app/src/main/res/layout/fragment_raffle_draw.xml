@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/backgroundColor"
+
     tools:context=".ui.raffle_draw.RaffleFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+      >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -99,6 +101,15 @@
                 android:text="Balance: N500"
                 android:textColor="@color/sandyBrown"
                 android:textStyle="bold" />
+            <com.google.android.gms.ads.admanager.AdManagerAdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adManagerAdView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                ads:adSize="SMART_BANNER"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            </com.google.android.gms.ads.admanager.AdManagerAdView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
@@ -107,9 +118,12 @@
                 android:splitMotionEvents="true"
                 app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
                 app:spanCount="2"
-                tools:itemCount="5"
+                tools:itemCount="2"
                 android:id="@+id/planRecycler"
+                android:layout_marginBottom="55dp"
                 tools:listitem="@layout/raffle_layout" />
+
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

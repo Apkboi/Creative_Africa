@@ -80,6 +80,7 @@
         android:layout_height="wrap_content"
         android:padding="18dp"
         android:text="Vote"
+        android:id="@+id/vote"
         app:icon="@drawable/ic_vote"
         app:iconGravity="textStart"/>
 </LinearLayout>

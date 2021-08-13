@@ -129,10 +129,12 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback{
     override fun collectCardPin() {
 //        TODO("Not yet implemented")
         cardPayManager.submitPin("3310")
+        Toast.makeText(this,"pin collected",Toast.LENGTH_LONG).show()
     }
 
     override fun collectOtp(message: String?) {
         cardPayManager.submitOtp("12345")
+        Toast.makeText(this,"otp collected",Toast.LENGTH_LONG).show()
         Log.d(TAG, "collectOtp: $message")
 //        TODO("Not yet implemented")
     }
