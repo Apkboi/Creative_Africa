@@ -10,6 +10,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundColor">#FFFFFFFF</color>
     <color name="textColor">#A92B2B2B</color>
+    <color name="rogue">#ffdac6</color>
+
+
 
     <color name="sandyBrown">#F49048</color>
     <color name="sandBrown">#e1cb81</color> #

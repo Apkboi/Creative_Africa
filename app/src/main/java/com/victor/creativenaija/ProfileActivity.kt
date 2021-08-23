@@ -40,6 +40,4 @@ class ProfileActivity : AppCompatActivity() {
     }
 }
 
-private fun SwitchMaterial.setOnCheckedChangeListener() {
-    TODO("Not yet implemented")
-}
+

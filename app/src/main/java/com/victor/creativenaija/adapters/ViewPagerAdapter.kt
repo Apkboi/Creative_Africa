@@ -14,9 +14,9 @@ class ViewPagerAdapter(var context: Context) : PagerAdapter() {
     var inflater: LayoutInflater? = null
 
     var images = intArrayOf(
-        R.drawable.photographm,
-        R.drawable.dancem,
-        R.drawable.singerm
+        R.drawable.lady,
+        R.drawable.party,
+        R.drawable.danceer
     )
     var headers = intArrayOf(
         R.string.header1,

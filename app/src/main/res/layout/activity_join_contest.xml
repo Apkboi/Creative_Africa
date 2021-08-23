@@ -40,11 +40,25 @@
         android:layout_height="wrap_content"
         android:focusedByDefault="false"
         android:hint="Select What You Can Do"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
       app:boxStrokeColor="@color/sandBrown"
         app:hintAnimationEnabled="false"
         app:endIconMode="clear_text"
+        android:backgroundTint="@color/snowWhite"
         app:spinnerMode="bottomsheet"
         app:startIconDrawable="@drawable/ic_tickets" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:startIconDrawable="@drawable/ic_link"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Facebook Post Link"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 

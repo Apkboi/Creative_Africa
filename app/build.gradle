@@ -78,9 +78,20 @@ dependencies {
 //    Atm Card PayView
     implementation 'com.github.fevziomurtekin:PayView:1.0.3'
     //    Google Admob
-    dependencies {
-        implementation 'com.google.android.gms:play-services-ads:20.2.0'
-        implementation project(':nativetemplates')
-    }
+
+    implementation 'com.google.android.gms:play-services-ads:20.2.0'
+    implementation project(':nativetemplates')
+//        OTP View
+//    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.0'
+
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2'
+        implementation 'com.github.poovamraj:PinEditTextField:1.2.6'
+    
+
+//    implementation 'com.github.chaosleung:pinview:1.4.3'
+
+
+
+
 
 }

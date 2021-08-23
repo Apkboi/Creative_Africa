@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/singerm"
+        android:src="@drawable/lady"
         app:layout_anchor="@+id/linearLayout"
         app:layout_anchorGravity="center"
         android:id="@+id/imgBg"

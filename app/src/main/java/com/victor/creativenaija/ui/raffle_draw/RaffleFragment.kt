@@ -12,6 +12,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.admanager.AdManagerAdRequest
+import com.google.android.gms.ads.admanager.AdManagerInterstitialAd
+import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
@@ -20,13 +24,17 @@ import com.victor.creativenaija.adapters.RafflePlanAdapter
 import com.victor.creativenaija.databinding.FragmentRaffleDrawBinding
 import com.victor.creativenaija.interfaces.BuyTicketListener
 
-class RaffleFragment : Fragment(),BuyTicketListener,OnUserEarnedRewardListener {
+class RaffleFragment : Fragment(), BuyTicketListener, OnUserEarnedRewardListener {
 
     private lateinit var raffleViewModel: RaffleViewModel
     private var _binding: FragmentRaffleDrawBinding? = null
     private val binding get() = _binding!!
     private var mRewardedAd: RewardedAd? = null
+    private var interstisialAd: AdManagerInterstitialAd? = null
     lateinit var adRequest: AdRequest
+    lateinit var interstisialAdRequest: AdManagerAdRequest
+
+
     val TAG = "Raffle Fragment"
 
 
@@ -42,18 +50,20 @@ class RaffleFragment : Fragment(),BuyTicketListener,OnUserEarnedRewardListener {
 //        val root = inflater.inflate(R.layout.fragment_raffle_draw, container, false)
 //
         val view = binding.root
-
         val adapter = RafflePlanAdapter()
         adapter.setBuyTicketListener(this)
         binding.planRecycler.adapter = adapter
         adRequest = AdRequest.Builder().build()
+        val adRequest = AdManagerAdRequest.Builder().build()
+        binding.adManagerAdView.loadAd(adRequest)
+        interstisialAdRequest = AdManagerAdRequest.Builder().build()
+
 
 
 
 //        mAdManagerAdView = findViewById(R.id.adManagerAdView)
 
-        val adRequest = AdManagerAdRequest.Builder().build()
-        binding.adManagerAdView.loadAd(adRequest)
+
 
         binding.adManagerAdView.adListener = object : AdListener() {
             override fun onAdClicked() {
@@ -83,13 +93,32 @@ class RaffleFragment : Fragment(),BuyTicketListener,OnUserEarnedRewardListener {
             }
 
 
-
         }
+
+
+//        ------------ Interstisial Ad Loading --------
+
+        AdManagerInterstitialAd.load(
+            context,
+            "ca-app-pub-3940256099942544/8691691433",
+            interstisialAdRequest,
+            object : AdManagerInterstitialAdLoadCallback(){
+                override fun onAdFailedToLoad(p0: LoadAdError) {
+                    Log.d(TAG, p0?.message)
+                    interstisialAd = null
+                    super.onAdFailedToLoad(p0)
+                }
+
+                override fun onAdLoaded(p0: AdManagerInterstitialAd) {
+                    Log.d(TAG, "Ad was loaded.")
+                    interstisialAd = p0
+                }
+            })
 
 
 //        ------------------RewardedAd Loading ----------------
         RewardedAd.load(
-           this.context,
+            this.context,
             "ca-app-pub-3940256099942544/5224354917",
             adRequest,
             object : RewardedAdLoadCallback() {
@@ -104,7 +133,29 @@ class RaffleFragment : Fragment(),BuyTicketListener,OnUserEarnedRewardListener {
                 }
             })
 
-        //        Setting Ad Fullscreen
+        //        Setting Ad Fullscreen 4 rewarded ads
+        mRewardedAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+            override fun onAdShowedFullScreenContent() {
+                // Called when ad is shown.
+                Log.d(TAG, "Ad was shown.")
+            }
+
+            override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
+                // Called when ad fails to show.
+                Log.d(TAG, "Ad failed to show.")
+            }
+
+            override fun onAdDismissedFullScreenContent() {
+                // Called when ad is dismissed.
+                // Set the ad reference to null so you don't show the ad a second time.
+                Log.d(TAG, "Ad was dismissed.")
+                mRewardedAd = null
+            }
+        }
+
+        //        Setting Ad Fullscreen 4 interstetial ads
+
+
         mRewardedAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdShowedFullScreenContent() {
                 // Called when ad is shown.
@@ -125,10 +176,7 @@ class RaffleFragment : Fragment(),BuyTicketListener,OnUserEarnedRewardListener {
         }
 
         return view
-        }
-
-
-
+    }
 
 
     override fun onBuyClicked() {
@@ -139,27 +187,49 @@ class RaffleFragment : Fragment(),BuyTicketListener,OnUserEarnedRewardListener {
         Toast.makeText(context, "ddd", Toast.LENGTH_LONG).show()
 
 
-        if (mRewardedAd != null) {
-            mRewardedAd?.show(activity,this)
-            RewardedAd.load(
+        if (interstisialAd != null) {
+            interstisialAd?.show(activity)
+            AdManagerInterstitialAd.load(
                 this.context,
                 "ca-app-pub-3940256099942544/5224354917",
-                adRequest,
-                object : RewardedAdLoadCallback() {
+                interstisialAdRequest,
+                object : AdManagerInterstitialAdLoadCallback() {
                     override fun onAdFailedToLoad(adError: LoadAdError) {
-                        Log.d("error", adError?.message )
+                        Log.d("error", adError?.message)
                         mRewardedAd = null
                     }
 
-                    override fun onAdLoaded(rewardedAd: RewardedAd) {
+                    override fun onAdLoaded(rewardedAd: AdManagerInterstitialAd) {
                         Log.d(TAG, "Ad was loaded.")
-                        mRewardedAd = rewardedAd
+                        interstisialAd = rewardedAd
                     }
                 })
 
         } else {
-            Log.d(TAG, "The rewarded ad wasn't ready yet.")
+            Log.d(TAG, "The interstetial ad wasn't ready yet.")
         }
+
+//        if (mRewardedAd != null) {
+//            mRewardedAd?.show(activity, this)
+//            RewardedAd.load(
+//                this.context,
+//                "ca-app-pub-3940256099942544/5224354917",
+//                adRequest,
+//                object : RewardedAdLoadCallback() {
+//                    override fun onAdFailedToLoad(adError: LoadAdError) {
+//                        Log.d("error", adError?.message)
+//                        mRewardedAd = null
+//                    }
+//
+//                    override fun onAdLoaded(rewardedAd: RewardedAd) {
+//                        Log.d(TAG, "Ad was loaded.")
+//                        mRewardedAd = rewardedAd
+//                    }
+//                })
+//
+//        } else {
+//            Log.d(TAG, "The rewarded ad wasn't ready yet.")
+//        }
 
 
 //        ------------------- Ads Initialization End-----------------------
@@ -171,5 +241,5 @@ class RaffleFragment : Fragment(),BuyTicketListener,OnUserEarnedRewardListener {
     }
 
 //        TODO("Not yet implemented")
-    }
+}
 

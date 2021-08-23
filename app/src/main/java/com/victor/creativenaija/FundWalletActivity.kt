@@ -1,8 +1,11 @@
 package com.victor.creativenaija
 
+import `in`.aabhasjindal.otptextview.OTPListener
+import `in`.aabhasjindal.otptextview.OtpTextView
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.ContentValues.TAG
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,25 +14,42 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fevziomurtekin.payview.Payview
 import com.fevziomurtekin.payview.data.PayModel
-import com.flutterwave.raveandroid.rave_core.models.SavedCard
-import com.flutterwave.raveandroid.rave_java_commons.RaveConstants
-import com.flutterwave.raveandroid.rave_java_commons.RaveConstants.NGN
 import com.flutterwave.raveandroid.rave_presentation.RaveNonUIManager
 import com.flutterwave.raveandroid.rave_presentation.card.Card
 import com.flutterwave.raveandroid.rave_presentation.card.CardPaymentCallback
 import com.flutterwave.raveandroid.rave_presentation.card.CardPaymentManager
-import com.flutterwave.raveandroid.rave_presentation.card.SavedCardsListener
 import com.victor.creativenaija.databinding.ActivityFundWalletBinding
-import com.victor.creativenaija.utils.Constants
 
 
-class FundWalletActivity : AppCompatActivity(), CardPaymentCallback{
+class FundWalletActivity : AppCompatActivity(), CardPaymentCallback {
 
-    lateinit var cardPayManager:CardPaymentManager
+    lateinit var cardPayManager: CardPaymentManager
+    var otpDialog: Dialog? = null
+    var pinDialog: Dialog? = null
+    var view1: View? = null
+    var view2: View? = null
+    var dialogOtp: AlertDialog.Builder? = null
+    var dialogPin: AlertDialog.Builder? = null
+
+    lateinit var alertDialogPin: AlertDialog
+    lateinit var alertDialogOtp: AlertDialog
+
+
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var binding: ActivityFundWalletBinding
+        binding = ActivityFundWalletBinding.inflate(LayoutInflater.from(this))
+        val view = binding.root
+        setContentView(view)
+        val otpView: OtpTextView = view2!!.findViewById(R.id.otp_view)
+        val pinView: OtpTextView = view1!!.findViewById(R.id.pin_view)
+
+
+
+
+        initializeDialogs()
+
 
         val card = Card(
             "5531886652142950",
@@ -38,28 +58,55 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback{
             "123"
         )
 
-        binding = ActivityFundWalletBinding.inflate(LayoutInflater.from(this))
-        val view = binding.root
-        setContentView(view)
+        -------------------  PayView Block ----------------------------
+
+        binding.payview.setPayOnclickListener(View.OnClickListener {
 
 
+            Log.d(
+                "PayView ",
+                " clicked. iss Fill all form Component : ${binding.payview.isFillAllComponents}"
+            )
+            cardPayManager.chargeCard(card)
 
-        binding.payview.setOnDataChangedListener(object : Payview.OnChangelistener {
-            override fun onChangelistener(payModel: PayModel?, isFillAllComponent: Boolean) {
-
-
-                Log.d(
-                    "PayView", "data : ${payModel?.cardOwnerName} \n " +
-                            "is Fill all form component : $isFillAllComponent"
-                )
-
-            }
 
         })
 
-//        binding.payview.setPayOnclickListener {
-//            Toast.makeText(this, " clicked", Toast.LENGTH_LONG).show()
-//        }
+
+        -------------------  PayView Block  End ----------------------------
+
+
+
+
+        otpView.setOtpListener(object : OTPListener {
+            override fun onInteractionListener() {
+                // fired when user types something in the Otpbox
+            }
+
+            override fun onOTPComplete(otp: String) {
+                cardPayManager.submitOtp(otp)
+                // fired when user has entered the OTP fully.
+//                Toast.makeText(this@MainActivity, "The OTP is $otp", Toast.LENGTH_SHORT).show()
+            }
+        })
+        pinView.setOtpListener(object : OTPListener {
+            override fun onInteractionListener() {
+                // fired when user types something in the Otpbox
+            }
+
+            override fun onOTPComplete(otp: String) {
+                cardPayManager.submitPin(otp)
+                // fired when user has entered the OTP fully.
+//                Toast.makeText(this@MainActivity, "The OTP is $otp", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+
+
+
+
+
+
 
 
         val raveNonUIManager: RaveNonUIManager =
@@ -79,11 +126,11 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback{
 //                .setMeta(List<Meta>)
                 .isPreAuth(false)
 //                .setSubAccounts(List<SubAccount>)
+//        .shouldDisplayFee(true)
+//            .showStagingLabel(boolean)
 
                 .initialize();
 
-//        .shouldDisplayFee(true)
-//            .showStagingLabel(boolean)
 
 
         cardPayManager = CardPaymentManager(
@@ -92,34 +139,14 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback{
         )
 
 
-        binding.payview.setPayOnclickListener(View.OnClickListener {
 
 
 
-            Log.d(
-                "PayView ",
-                " clicked. iss Fill all form Component : ${binding.payview.isFillAllComponents}"
-            )
-            cardPayManager.chargeCard(card)
 
-
-
-        })
-
-
-//         card= Card(
-//
-////            "5531886652142950", "12",
-////            "22",
-////            "123"
-//        )
-
-        // Test MasterCard PIN
-
-//        cardPayManager.chargeCard(card);
     }
 
 
+    //    ------------ Charge Card Callback methods
     override fun showProgressIndicator(active: Boolean) {
         Log.d(TAG, "showProgressIndicator: $active")
 //        if (!active) Toast.makeText(this,"Done",Toast.LENGTH_LONG).show()
@@ -127,14 +154,32 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback{
     }
 
     override fun collectCardPin() {
+
+//        val view2: View = layoutInflater.inflate(R.layout.pin_layout, null, false)
+//        val dialog = AlertDialog.Builder(this)
+//        dialog.setView(view2)
+//        alertDialog = dialog.create()
+////        alertDialog.setContentView(view2)
+        alertDialogPin.show()
 //        TODO("Not yet implemented")
-        cardPayManager.submitPin("3310")
-        Toast.makeText(this,"pin collected",Toast.LENGTH_LONG).show()
+//        pinDialog?.show()
+//        cardPayManager.submitPin("3310")
+        Toast.makeText(this, "pin collected", Toast.LENGTH_LONG).show()
     }
 
     override fun collectOtp(message: String?) {
-        cardPayManager.submitOtp("12345")
-        Toast.makeText(this,"otp collected",Toast.LENGTH_LONG).show()
+//        cardPayManager.submitOtp("12345")
+
+        val view2: View = layoutInflater.inflate(R.layout.otp_view, null, false)
+        val dialog = AlertDialog.Builder(this)
+        dialog.setView(view2)
+//        alertDialog = dialog.create()
+//        alertDialog.setContentView(view2)
+        alertDialogOtp.show()
+
+//        otpDialog?.show()
+
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         Log.d(TAG, "collectOtp: $message")
 //        TODO("Not yet implemented")
     }
@@ -166,6 +211,26 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback{
 //        TODO("Not yet implemented")
     }
 
+
+    fun initializeDialogs() {
+
+        otpDialog = Dialog(this)
+        pinDialog = Dialog(this)
+//    otpDialog!!.setContentView(R.layout.otp_view)
+//    pinDialog!!.setContentView(R.layout.otp_view)
+        view1 = layoutInflater.inflate(R.layout.pin_layout, null, false)
+        view2 = layoutInflater.inflate(R.layout.otp_view, null, false)
+        dialogOtp = AlertDialog.Builder(this)
+        dialogPin = AlertDialog.Builder(this)
+        dialogOtp!!.setView(view2)
+        dialogPin!!.setView(view1)
+        alertDialogPin = dialogPin!!.create()
+        alertDialogOtp = dialogOtp!!.create()
+
+
+    }
+
+
 //    override fun onSavedCardsLookupSuccessful(
 //        cards: MutableList<SavedCard>?,
 //        phoneNumber: String?
@@ -195,7 +260,7 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback{
 //
 //    override fun onCardSaveFailed(message: String?) {
 ////        TODO("Not yet implemented")
-    }
+}
 
 
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

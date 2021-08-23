@@ -6,16 +6,18 @@ data class Contestants(
     val contestId: Int,
     val votes: Int,
     val registrationDate: Long,
+    var postLink:String
 
 
     ) {
 
-    constructor(userId: Int, contestId: Int, votes: Int, registrationDate: Long) : this(
+    constructor(userId: Int, contestId: Int, votes: Int, registrationDate: Long,postLink: String) : this(
         0,
         userId,
         contestId,
         votes,
-        registrationDate
+        registrationDate,
+        postLink
     )
 
 }
