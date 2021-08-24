@@ -58,7 +58,7 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback {
             "123"
         )
 
-        -------------------  PayView Block ----------------------------
+//        -------------------  PayView Block ----------------------------
 
         binding.payview.setPayOnclickListener(View.OnClickListener {
 
@@ -73,7 +73,7 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback {
         })
 
 
-        -------------------  PayView Block  End ----------------------------
+//        -------------------  PayView Block  End ----------------------------
 
 
 
