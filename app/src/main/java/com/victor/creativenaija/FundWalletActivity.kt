@@ -78,6 +78,8 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback {
 
 
 
+//        =========================== OTP / PINVIEW LISTENERS -------------------
+
         otpView.setOtpListener(object : OTPListener {
             override fun onInteractionListener() {
                 // fired when user types something in the Otpbox
@@ -92,7 +94,12 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback {
         pinView.setOtpListener(object : OTPListener {
             override fun onInteractionListener() {
                 // fired when user types something in the Otpbox
+
             }
+
+
+
+
 
             override fun onOTPComplete(otp: String) {
                 cardPayManager.submitPin(otp)
@@ -102,11 +109,11 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback {
         })
 
 
+        //        =========================== OTP / PINVIEW LISTENERS END -------------------
 
 
 
-
-
+// ============================= FLUTTERWAVE RAVE PAY MANAGER =======================
 
 
         val raveNonUIManager: RaveNonUIManager =
@@ -138,6 +145,9 @@ class FundWalletActivity : AppCompatActivity(), CardPaymentCallback {
 //            raveNonUIManager, CardPaymentCallback, SavedCardsListener
         )
 
+
+
+        // ============================= FLUTTERWAVE RAVE PAY MANAGER END =======================
 
 
 
